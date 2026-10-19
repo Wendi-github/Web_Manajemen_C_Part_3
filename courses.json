@@ -1,0 +1,224 @@
+[
+  {
+    "id": "teknologi-informatika",
+    "name": "Teknologi Informatika",
+    "short": "TIK",
+    "day": "Selasa",
+    "time": "09.40",
+    "room": "Lab.kom",
+    "icon": "⌘",
+    "accent": "#67e8f9",
+    "summary": "Memahami cara teknologi informasi membantu kita mengolah data, berkomunikasi, dan memecahkan masalah.",
+    "lessons": [
+      {
+        "title": "Literasi digital dan sistem komputer",
+        "body": "Komputer menerima masukan, mengolahnya melalui instruksi, menyimpan data, lalu menghasilkan keluaran. Perangkat keras, perangkat lunak, dan pengguna saling melengkapi. Literasi digital juga berarti mampu menilai informasi, menjaga privasi, dan menggunakan teknologi secara bertanggung jawab.",
+        "concepts": ["Input", "Proses", "Output", "Data", "Etika digital"]
+      },
+      {
+        "title": "Data dan produktivitas perkantoran",
+        "body": "Data mentah menjadi informasi setelah dibersihkan, dikelompokkan, dan diberi konteks. Lembar kerja dapat membantu menghitung total, membandingkan angka, dan menyajikan grafik. Periksa sumber, rumus, satuan, dan hak akses sebelum membagikan hasil.",
+        "concepts": ["Data", "Informasi", "Spreadsheet", "Visualisasi", "Keamanan"]
+      }
+    ]
+  },
+  {
+    "id": "konservasi-lingkungan",
+    "name": "Konservasi Lingkungan",
+    "short": "LINGKUNGAN",
+    "day": "Selasa",
+    "time": "12.30",
+    "room": "Ruang 45",
+    "icon": "♧",
+    "accent": "#86efac",
+    "summary": "Mempelajari hubungan manusia dengan lingkungan serta pilihan untuk menjaga keberlanjutan sumber daya.",
+    "lessons": [
+      {
+        "title": "Ekosistem dan daya dukung",
+        "body": "Ekosistem terbentuk dari interaksi makhluk hidup dengan lingkungan fisiknya. Daya dukung menggambarkan kemampuan lingkungan menyediakan sumber daya dan menerima dampak kegiatan. Perubahan pada satu bagian dapat memengaruhi bagian lain, sehingga pengelolaan perlu memperhatikan bukti dan konteks lokal.",
+        "concepts": ["Ekosistem", "Interaksi", "Daya dukung", "Keanekaragaman", "Dampak"]
+      },
+      {
+        "title": "Konservasi dan pembangunan berkelanjutan",
+        "body": "Konservasi mengelola perlindungan dan pemanfaatan sumber daya agar manfaat ekologis dan sosialnya terjaga. Langkah awal yang baik adalah mengenali masalah, pihak terdampak, alternatif tindakan, indikator keberhasilan, dan cara mengevaluasi hasil secara berkala.",
+        "concepts": ["Konservasi", "Sumber daya", "Pemangku kepentingan", "Indikator", "Evaluasi"]
+      }
+    ]
+  },
+  {
+    "id": "bahasa-indonesia",
+    "name": "Bahasa Indonesia",
+    "short": "BAHASA",
+    "day": "Selasa",
+    "time": "15.10",
+    "room": "Ruang 45",
+    "icon": "Aa",
+    "accent": "#f9a8d4",
+    "summary": "Berlatih menyusun gagasan akademik secara jelas, runtut, efektif, dan sesuai kaidah Bahasa Indonesia.",
+    "lessons": [
+      {
+        "title": "Paragraf efektif dan gagasan utama",
+        "body": "Paragraf yang baik berpusat pada satu gagasan utama yang dikembangkan dengan penjelas relevan. Susun urutan logis, gunakan kata rujukan dengan jelas, dan hilangkan pengulangan yang tidak menambah makna. Hubungan antarkalimat sebaiknya mudah diikuti pembaca.",
+        "concepts": ["Gagasan utama", "Kalimat topik", "Koherensi", "Kohesi", "Efektivitas"]
+      },
+      {
+        "title": "Penulisan akademik dan sitasi",
+        "body": "Tulisan akademik menyampaikan klaim yang didukung alasan dan sumber yang dapat diperiksa. Parafrasa tetap harus menyebut sumber gagasan, sedangkan kutipan langsung harus ditandai secara konsisten. Ikuti gaya sitasi yang ditetapkan dosen dan jangan mencantumkan sumber yang belum dibaca.",
+        "concepts": ["Klaim", "Bukti", "Parafrasa", "Sitasi", "Integritas akademik"]
+      }
+    ]
+  },
+  {
+    "id": "agama",
+    "name": "Agama",
+    "short": "AGAMA",
+    "day": "Rabu",
+    "time": "12.30",
+    "room": "Ruang 45",
+    "icon": "✧",
+    "accent": "#c4b5fd",
+    "summary": "Membangun pemahaman nilai, tanggung jawab, dan perilaku etis dalam kehidupan pribadi maupun bermasyarakat.",
+    "lessons": [
+      {
+        "title": "Nilai moral dan tanggung jawab",
+        "body": "Pembelajaran nilai moral mengajak mahasiswa menghubungkan prinsip kebaikan dengan pilihan dan akibatnya. Saat menghadapi dilema, identifikasi pihak yang terdampak, nilai yang relevan, pilihan yang tersedia, dan alasan yang dapat dipertanggungjawabkan.",
+        "concepts": ["Nilai", "Niat", "Tanggung jawab", "Pilihan", "Dampak"]
+      },
+      {
+        "title": "Etika, toleransi, dan kehidupan bersama",
+        "body": "Kehidupan bersama membutuhkan sikap saling menghormati, kejujuran, kepedulian, dan dialog. Perbedaan perlu ditanggapi tanpa merendahkan orang lain. Terapkan prinsip etis dengan mempertimbangkan konteks dan ajaran yang dibahas dalam perkuliahan.",
+        "concepts": ["Etika", "Toleransi", "Empati", "Dialog", "Integritas"]
+      }
+    ]
+  },
+  {
+    "id": "ekonomi-mikro",
+    "name": "Ekonomi Mikro",
+    "short": "MIKRO",
+    "day": "Rabu",
+    "time": "15.10",
+    "room": "Ruang 45",
+    "icon": "↗",
+    "accent": "#fcd34d",
+    "summary": "Menganalisis keputusan konsumen dan perusahaan serta bagaimana harga dan pasar terbentuk.",
+    "lessons": [
+      {
+        "title": "Permintaan, penawaran, dan keseimbangan",
+        "body": "Permintaan menunjukkan jumlah yang bersedia dan mampu dibeli konsumen pada berbagai tingkat harga dalam periode tertentu. Penawaran menunjukkan jumlah yang bersedia dijual produsen. Perubahan harga barang itu sendiri bergerak sepanjang kurva; perubahan faktor lain dapat menggeser kurva. Harga keseimbangan terjadi ketika jumlah diminta sama dengan jumlah ditawarkan.",
+        "concepts": ["Permintaan", "Penawaran", "Kurva", "Keseimbangan", "Pergeseran"]
+      },
+      {
+        "title": "Elastisitas dan keputusan konsumen",
+        "body": "Elastisitas mengukur seberapa responsif jumlah diminta atau ditawarkan terhadap perubahan faktor seperti harga atau pendapatan. Penafsiran perlu menyebut ukuran yang dibandingkan dan periode pengamatan. Konsumen memilih kombinasi barang sesuai preferensi, harga, dan anggaran yang terbatas.",
+        "concepts": ["Elastisitas", "Harga", "Pendapatan", "Preferensi", "Anggaran"]
+      },
+      {
+        "title": "Produksi, biaya, dan pasar",
+        "body": "Perusahaan mengubah input menjadi output. Biaya tetap tidak berubah dalam rentang kegiatan tertentu, sementara biaya variabel berubah mengikuti produksi. Memahami biaya dan struktur pasar membantu menjelaskan keputusan produksi serta persaingan, tetapi kesimpulan harus sesuai asumsi model yang digunakan.",
+        "concepts": ["Produksi", "Biaya tetap", "Biaya variabel", "Penerimaan", "Persaingan"]
+      }
+    ]
+  },
+  {
+    "id": "manajemen",
+    "name": "Manajemen",
+    "short": "MANAJEMEN",
+    "day": "Kamis",
+    "time": "09.40",
+    "room": "Ruang 41",
+    "icon": "◈",
+    "accent": "#a5b4fc",
+    "summary": "Mempelajari cara merencanakan, mengorganisasi, memimpin, dan mengendalikan sumber daya untuk mencapai tujuan.",
+    "lessons": [
+      {
+        "title": "Fungsi dan proses manajemen",
+        "body": "Manajemen menyelaraskan tujuan dengan sumber daya melalui perencanaan, pengorganisasian, pengarahan, dan pengendalian. Keempat fungsi saling berkaitan: rencana memberi arah, struktur membagi pekerjaan, kepemimpinan menggerakkan orang, dan pengendalian membandingkan hasil dengan target.",
+        "concepts": ["Perencanaan", "Pengorganisasian", "Pengarahan", "Pengendalian", "Tujuan"]
+      },
+      {
+        "title": "Lingkungan organisasi dan keputusan",
+        "body": "Keputusan manajerial mempertimbangkan tujuan, bukti, risiko, keterbatasan, dan pihak yang terdampak. Analisis lingkungan internal dan eksternal membantu mengenali peluang serta ancaman, tetapi bukan pengganti validasi data. Tetapkan indikator yang dapat diukur untuk menilai hasil.",
+        "concepts": ["Organisasi", "Lingkungan", "Keputusan", "Risiko", "Indikator"]
+      },
+      {
+        "title": "Kepemimpinan dan kerja tim",
+        "body": "Tim yang efektif memiliki tujuan bersama, pembagian peran yang jelas, komunikasi terbuka, dan umpan balik. Pemimpin menyesuaikan cara koordinasi dengan kebutuhan tim dan situasi, menjaga akuntabilitas, serta membantu menyelesaikan konflik secara konstruktif.",
+        "concepts": ["Kepemimpinan", "Tim", "Komunikasi", "Delegasi", "Umpan balik"]
+      }
+    ]
+  },
+  {
+    "id": "pengantar-akuntansi",
+    "name": "Pengantar Akuntansi",
+    "short": "AKUNTANSI",
+    "day": "Kamis",
+    "time": "12.30",
+    "room": "Ruang 41",
+    "icon": "▤",
+    "accent": "#67e8f9",
+    "summary": "Mengenal pencatatan transaksi dan penyusunan informasi keuangan untuk mendukung keputusan.",
+    "lessons": [
+      {
+        "title": "Persamaan dasar dan akun",
+        "body": "Persamaan akuntansi dasar adalah aset = liabilitas + ekuitas. Setiap transaksi memengaruhi sedikitnya dua akun dan harus menjaga persamaan tetap seimbang. Kenali sifat akun dan dampak transaksi sebelum membuat jurnal; jangan menyimpulkan laba hanya dari perubahan kas.",
+        "concepts": ["Aset", "Liabilitas", "Ekuitas", "Transaksi", "Saldo"]
+      },
+      {
+        "title": "Jurnal dan siklus akuntansi",
+        "body": "Siklus akuntansi dimulai dari bukti transaksi, analisis, pencatatan jurnal, pemindahbukuan, dan neraca saldo. Penyesuaian diperlukan agar pendapatan dan beban dicatat pada periode yang tepat. Proses ditutup dengan laporan keuangan sesuai informasi yang tersedia.",
+        "concepts": ["Bukti transaksi", "Debit", "Kredit", "Penyesuaian", "Periode"]
+      },
+      {
+        "title": "Laporan keuangan dasar",
+        "body": "Laporan laba rugi merangkum kinerja selama periode, laporan posisi keuangan menunjukkan aset, liabilitas, dan ekuitas pada tanggal tertentu, sementara laporan arus kas mengelompokkan arus kas. Baca laporan bersama catatan dan konteksnya.",
+        "concepts": ["Laba rugi", "Posisi keuangan", "Arus kas", "Periode", "Pengguna informasi"]
+      }
+    ]
+  },
+  {
+    "id": "pancasila",
+    "name": "Pancasila",
+    "short": "PANCASILA",
+    "day": "Jumat",
+    "time": "07.00",
+    "room": "Ruang 40",
+    "icon": "✺",
+    "accent": "#fda4af",
+    "summary": "Memahami Pancasila sebagai dasar negara dan nilai untuk kehidupan bermasyarakat yang berkeadilan.",
+    "lessons": [
+      {
+        "title": "Pancasila sebagai dasar dan pandangan hidup",
+        "body": "Pancasila menjadi dasar negara Indonesia dan sumber nilai dalam kehidupan bersama. Tiap sila dipahami saling berkaitan, bukan berdiri sendiri. Mengkaji penerapannya memerlukan pemahaman konteks sejarah, konstitusi, dan tanggung jawab warga negara.",
+        "concepts": ["Dasar negara", "Nilai", "Kesatuan sila", "Konstitusi", "Warga negara"]
+      },
+      {
+        "title": "Penerapan nilai dalam kehidupan publik",
+        "body": "Nilai kemanusiaan, persatuan, musyawarah, dan keadilan dapat menjadi lensa untuk mengevaluasi tindakan publik. Uraikan masalah, pihak terkait, hak dan kewajiban, serta alasan keputusan. Hindari menganggap satu contoh telah mewakili seluruh praktik nilai Pancasila.",
+        "concepts": ["Kemanusiaan", "Persatuan", "Musyawarah", "Keadilan", "Partisipasi"]
+      }
+    ]
+  },
+  {
+    "id": "bahasa-inggris",
+    "name": "Bahasa Inggris",
+    "short": "ENGLISH",
+    "day": "Jumat",
+    "time": "09.40",
+    "room": "Ruang 38",
+    "icon": "文",
+    "accent": "#fdba74",
+    "summary": "Meningkatkan kemampuan membaca, menulis, dan berkomunikasi dalam situasi akademik dan bisnis.",
+    "lessons": [
+      {
+        "title": "Academic reading and vocabulary",
+        "body": "Start by identifying the topic, main claim, and supporting evidence. Use context to infer unfamiliar words, then verify important terms in a reliable dictionary. Distinguish facts, opinions, examples, and conclusions before summarizing a text.",
+        "concepts": ["Main idea", "Evidence", "Context clues", "Vocabulary", "Summary"]
+      },
+      {
+        "title": "Professional email and presentation",
+        "body": "A professional email uses a specific subject, polite greeting, concise purpose, clear action request, and appropriate closing. A presentation should have one central message, organized supporting points, readable visuals, and practice for clear delivery.",
+        "concepts": ["Audience", "Purpose", "Email structure", "Presentation", "Clarity"]
+      }
+    ]
+  }
+]

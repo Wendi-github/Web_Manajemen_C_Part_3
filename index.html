@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080b14">
   <title>Manajemen C UNIGAL</title>
-    <title>Software Engginerr Wenz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -299,6 +298,135 @@ footer{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between;a
 .wen-assistant [hidden]{display:none}
 @media(max-width:600px){.wen-assistant{right:16px;bottom:16px}.wen-panel{bottom:68px;height:min(500px,calc(100svh - 100px))}.navbar.scrolled .nav-links{border-radius:20px}}
 @media(prefers-reduced-motion:reduce){.wen-panel{animation:none}.wen-orb{animation:none}}
+
+.stats,.member-grid,.memory-grid,.student-roster{perspective:1100px;perspective-origin:50% 35%}
+.stats div,.student-card{transform-style:preserve-3d}
+.stats div:hover{transform:translateY(-6px) rotateX(3deg);border-color:var(--b)}
+.student-card:hover{transform:translateY(-3px) rotateX(1deg);border-color:rgba(196,169,107,.55);box-shadow:0 18px 42px -24px rgba(196,169,107,.22)}
+.hero-content{transform:translate3d(0,var(--hero-content-parallax,0px),0);will-change:transform}
+.hero-earth{transform:translate3d(0,calc(-50% + var(--hero-earth-parallax,0px)),0)}
+.hero-scorpio{transform:translate3d(0,var(--hero-scorpio-parallax,0px),0)}
+.hero-card{transform:perspective(1100px) rotateX(var(--hero-rotate-x)) rotateY(var(--hero-rotate-y)) translate3d(0,var(--hero-card-parallax,0px),0)}
+.hero-earth,.hero-scorpio,.hero-card{display:none}
+.hero{grid-template-columns:1fr}
+.hero-content{width:min(700px,60%);position:relative;z-index:5}
+.hero-content{width:min(720px,56vw)}
+.hero-content h1 .ln{overflow:visible}
+.hero-content h1 .ln>b{white-space:nowrap}
+.hero-content h1{font-size:clamp(3.5rem,8.5vw,7.5rem);text-shadow:0 14px 80px rgba(139,92,246,.18)}
+.hero .eyebrow{color:#a5f3fc}
+.hero-desc{color:#c9c5e4}
+.solar-system{--solar-parallax:0px;position:absolute;z-index:1;inset:82px 0 0 auto;width:min(74%,1100px);overflow:hidden;perspective:900px;transform:translate3d(0,var(--solar-parallax),0);transition:transform .12s linear;mask-image:linear-gradient(90deg,transparent,#000 16%,#000 90%,transparent)}
+.solar-system canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:pan-y}
+.solar-system canvas:active{cursor:grabbing}
+.solar-fallback{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;transform-style:preserve-3d;transform:rotateX(16deg) rotateY(-18deg)}
+.solar-fallback::before,.solar-fallback::after{content:"";position:absolute;width:min(44vw,600px);aspect-ratio:1;border:1px solid rgba(165,243,252,.17);border-radius:50%;transform:rotateX(74deg) rotateZ(-16deg);box-shadow:0 0 30px rgba(34,211,238,.04)}
+.solar-fallback::after{width:min(60vw,820px);border-color:rgba(196,181,253,.12);transform:rotateX(76deg) rotateZ(20deg)}
+.fallback-sun,.fallback-planet,.fallback-moon{position:absolute;display:block;border-radius:50%;transform-style:preserve-3d}
+.fallback-sun{left:17%;top:55%;width:clamp(46px,7vw,88px);aspect-ratio:1;background:radial-gradient(circle at 34% 30%,#fff9c4,#ffcb54 20%,#ff712c 57%,#821b76 90%);box-shadow:0 0 35px #ffb84e,0 0 95px rgba(255,100,37,.66),inset -10px -7px 18px rgba(26,8,47,.55);animation:sun-pulse 5s ease-in-out infinite alternate}
+.fallback-planet{width:clamp(8px,1.15vw,15px);aspect-ratio:1;border:1px solid rgba(255,255,255,.52);box-shadow:inset -5px -2px 8px rgba(3,7,24,.7),0 0 12px currentColor}
+.fallback-planet::after,.fallback-sun::after,.fallback-moon::after{position:absolute;top:calc(100% + 6px);left:50%;color:#e5e9ff;font:600 7px/1 "Space Grotesk",sans-serif;letter-spacing:.08em;text-shadow:0 1px 5px #080b14;white-space:nowrap;content:attr(data-name);transform:translateX(-50%)}
+.fallback-mercury{left:28%;top:49%;color:#b9b7c2;background:radial-gradient(circle at 30% 28%,#eee1cb,#777b89 64%,#292d3c)}
+.fallback-venus{left:36%;top:60%;width:clamp(10px,1.4vw,18px);color:#f1c787;background:radial-gradient(circle at 30% 28%,#fff0c4,#d7924d 60%,#44304d)}
+.fallback-earth{left:44%;top:48%;width:clamp(34px,5vw,60px);color:#55dfff;background:radial-gradient(circle at 30% 28%,#d4ffff 0,#65d7ff 13%,#267dd8 48%,#10214c 78%);box-shadow:inset -12px -5px 20px #050b26,0 0 30px rgba(34,211,238,.95);animation:earth-fallback-spin 20s linear infinite}
+.fallback-earth::before{position:absolute;inset:-15%;border:1px solid rgba(165,243,252,.48);border-radius:50%;content:"";transform:rotateX(70deg)}
+.fallback-earth::after{content:"BUMI"}
+.fallback-continent{position:absolute;z-index:1;display:block;background:linear-gradient(140deg,#b7f1a0,#35ba83 70%,#16785d);filter:drop-shadow(1px 1px 2px rgba(2,20,40,.7))}
+.fallback-continent-one{left:16%;top:22%;width:43%;height:35%;clip-path:polygon(10% 6%,72% 0,100% 33%,83% 53%,87% 82%,53% 100%,35% 68%,0 52%)}
+.fallback-continent-two{left:54%;top:53%;width:31%;height:37%;clip-path:polygon(15% 0,87% 12%,100% 47%,65% 100%,40% 76%,0 42%)}
+.fallback-moon{left:48.3%;top:44%;width:clamp(5px,.7vw,9px);aspect-ratio:1;color:#e7edff;background:radial-gradient(circle at 30% 28%,#fff,#9da8bd 55%,#3b4156);box-shadow:0 0 12px rgba(255,255,255,.5)}
+.fallback-moon::after{content:"BULAN"}
+.fallback-mars{left:52%;top:63%;color:#ff9273;background:radial-gradient(circle at 30% 28%,#ffd0a2,#e45c42 60%,#401c36)}
+.fallback-jupiter{left:61%;top:47%;width:clamp(17px,2.1vw,28px);color:#f0c69c;background:repeating-linear-gradient(0deg,#bc8064 0 2px,#f1d1a6 3px 5px,#926b70 6px 7px);box-shadow:inset -8px -3px 11px rgba(3,7,24,.55),0 0 16px rgba(232,193,150,.6)}
+.fallback-saturn{left:71%;top:59%;width:clamp(15px,1.8vw,24px);color:#ead8a6;background:radial-gradient(circle at 30% 28%,#fff0c4,#c6a46c 60%,#51435a)}
+.fallback-saturn::before{position:absolute;inset:22% -55%;border:2px solid rgba(238,216,166,.78);border-radius:50%;content:"";transform:rotateX(66deg)}
+.fallback-saturn::after{content:"SATURNUS"}
+.fallback-uranus{left:81%;top:49%;width:clamp(12px,1.55vw,20px);color:#a9ffff;background:radial-gradient(circle at 30% 28%,#e0ffff,#73cedd 60%,#1d4168)}
+.fallback-neptune{left:91%;top:61%;width:clamp(12px,1.5vw,19px);color:#8b9eff;background:radial-gradient(circle at 30% 28%,#bac8ff,#4966de 60%,#151e59)}
+.fallback-uranus::after{content:"URANUS"}.fallback-neptune::after{content:"NEPTUNUS"}
+.fallback-sun::after{content:"MATAHARI"}
+.fallback-mercury::after{content:"MERKURIUS"}.fallback-venus::after{content:"VENUS"}.fallback-mars::after{content:"MARS"}.fallback-jupiter::after{content:"JUPITER"}
+.solar-labels{position:absolute;inset:0;z-index:3;pointer-events:none}
+.solar-object-label{position:absolute;padding:3px 6px;border:1px solid rgba(165,243,252,.2);border-radius:999px;background:rgba(5,9,27,.72);color:#e4faff;font:600 8px/1 "Space Grotesk",sans-serif;letter-spacing:.08em;text-shadow:0 0 8px rgba(34,211,238,.5);white-space:nowrap;transform:translate(-50%,9px)}
+.solar-object-label[hidden]{display:none}
+.solar-object-label.earth-object-label{border-color:rgba(103,232,249,.8);background:rgba(7,38,72,.92);color:#baf7ff;box-shadow:0 0 14px rgba(34,211,238,.38)}
+@keyframes sun-pulse{to{filter:brightness(1.28);box-shadow:0 0 55px #ffb84e,0 0 145px rgba(255,100,37,.76)}}
+@keyframes earth-fallback-spin{to{filter:hue-rotate(22deg)}}
+.solar-system.is-ready .solar-fallback{display:none}
+.solar-readout{position:absolute;top:2%;right:7%;z-index:2;display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid rgba(165,243,252,.22);border-radius:15px;background:rgba(5,9,27,.72);backdrop-filter:blur(12px);color:#dffaff;box-shadow:0 12px 40px rgba(0,0,0,.24)}
+.solar-readout strong,.solar-readout small{display:block}.solar-readout strong{font-size:.68rem;letter-spacing:.16em}.solar-readout small{max-width:32ch;margin-top:3px;color:#94a3c8;font-size:.56rem;line-height:1.5;letter-spacing:.1em}
+.solar-live-dot{width:8px;height:8px;border-radius:50%;background:#67e8f9;box-shadow:0 0 14px #67e8f9}
+.solar-hint{position:absolute;right:9%;bottom:17%;color:rgba(196,181,253,.62);font-size:.59rem;letter-spacing:.16em}
+.hero-content .hero-actions{position:relative;z-index:6}
+.learning-section{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 84% 35%,rgba(34,211,238,.075),transparent 45%)}
+.learning-section::before{position:absolute;z-index:-1;inset:18% -5% auto;height:750px;background:repeating-radial-gradient(ellipse at 84% 45%,transparent 0 68px,rgba(165,243,252,.025) 69px 70px,transparent 71px 110px);content:"";pointer-events:none}
+.learning-toolbar{display:flex;justify-content:space-between;align-items:center;gap:18px;margin:0 0 22px;padding:10px 14px;border:1px solid var(--line);border-radius:18px;background:color-mix(in srgb,var(--bg2) 72%,transparent)}
+.learning-search{display:flex;align-items:center;gap:12px;flex:1;min-width:0;color:var(--b)}.learning-search>span{font-size:1.8rem}.learning-search input{width:100%;min-width:0;border:0;outline:0;background:none;color:var(--tx);font:inherit}.learning-search input::placeholder{color:var(--mut)}
+.learning-count,.course-meta,.upload-course,.wen-course-context{color:var(--mut);font-size:.65rem;letter-spacing:.14em}
+.learning-layout{display:grid;grid-template-columns:minmax(280px,.78fr) minmax(0,1.45fr);gap:20px;align-items:start}
+.course-rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;max-height:700px;overflow-y:auto;padding:3px 5px 8px 2px;perspective:1000px}
+.course-card{--course-accent:#67e8f9;position:relative;isolation:isolate;min-height:148px;padding:17px;border:1px solid color-mix(in srgb,var(--course-accent) 24%,var(--line));border-radius:19px;overflow:hidden;background:linear-gradient(145deg,color-mix(in srgb,var(--course-accent) 9%,var(--bg2)),color-mix(in srgb,var(--bg) 78%,transparent));text-align:left;color:var(--tx);cursor:pointer;transform:perspective(800px) rotateX(var(--course-rx,0deg)) rotateY(var(--course-ry,0deg)) translateZ(0);transform-style:preserve-3d;transition:transform .24s var(--ease),border-color .3s,box-shadow .3s}
+.course-card::before{position:absolute;z-index:-1;inset:-60% -30%;background:radial-gradient(circle at var(--course-x,50%) var(--course-y,50%),color-mix(in srgb,var(--course-accent) 25%,transparent),transparent 34%);content:"";opacity:.5;transition:opacity .3s}
+.course-card:hover,.course-card[aria-pressed=true]{border-color:var(--course-accent);box-shadow:0 18px 45px -25px var(--course-accent),inset 0 0 35px color-mix(in srgb,var(--course-accent) 8%,transparent)}
+.course-card[aria-pressed=true]{transform:perspective(800px) rotateX(2deg) translateZ(10px)}
+.course-icon{display:grid;width:38px;height:38px;place-items:center;border:1px solid color-mix(in srgb,var(--course-accent) 40%,transparent);border-radius:12px;background:color-mix(in srgb,var(--course-accent) 13%,transparent);color:var(--course-accent);font-size:1.1rem;transform:translateZ(18px)}
+.course-card strong,.course-card small{display:block;transform:translateZ(12px)}.course-card strong{margin:13px 0 5px;font:600 .85rem/1.25 "DM Sans",sans-serif}.course-card small{color:var(--mut);font-size:.64rem}
+.learning-detail{min-width:0;min-height:440px;padding:clamp(18px,3vw,34px);border:1px solid rgba(165,243,252,.2);border-radius:28px;background:linear-gradient(145deg,color-mix(in srgb,var(--bg2) 88%,transparent),color-mix(in srgb,var(--bg) 78%,transparent));box-shadow:0 35px 95px rgba(0,0,0,.28),inset 0 0 70px rgba(34,211,238,.04);transform-style:preserve-3d}
+.course-detail-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}.course-detail-head h3{margin:8px 0;font-size:clamp(1.5rem,3vw,2.3rem)}.course-detail-head p{max-width:52ch;color:var(--mut);font-size:.9rem}.course-orbit-mark{display:grid;place-items:center;width:52px;height:52px;flex:0 0 auto;border:1px solid rgba(165,243,252,.3);border-radius:50%;color:var(--b);font-size:1.5rem;box-shadow:0 0 24px rgba(34,211,238,.12)}
+.lesson-hologram{position:relative;display:grid;min-height:205px;place-items:center;margin:19px 0 20px;overflow:hidden;border:1px solid rgba(34,211,238,.18);border-radius:20px;background:radial-gradient(ellipse at 50% 85%,rgba(34,211,238,.15),transparent 55%),linear-gradient(180deg,rgba(10,17,39,.68),rgba(10,17,39,.25));perspective:700px;cursor:grab;touch-action:pan-y}
+.lesson-hologram::before{position:absolute;inset:0;background:linear-gradient(transparent 49%,rgba(34,211,238,.055) 50%,transparent 51%);background-size:100% 7px;content:"";pointer-events:none;opacity:.55}
+.holo-floor{position:absolute;bottom:-59%;width:110%;height:100%;border:1px solid rgba(34,211,238,.23);border-radius:50%;transform:rotateX(68deg);background:repeating-radial-gradient(ellipse,rgba(34,211,238,.08) 0 1px,transparent 2px 26px);box-shadow:0 -8px 45px rgba(34,211,238,.1)}
+.holo-graph{position:relative;width:min(100%,520px);height:190px;transform-style:preserve-3d;transform:rotateX(var(--holo-rx,0deg)) rotateY(var(--holo-ry,0deg));transition:transform .16s ease-out}
+.holo-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.holo-lines line{stroke:rgba(103,232,249,.48);stroke-width:1;stroke-dasharray:4 6;animation:holo-dash 8s linear infinite}@keyframes holo-dash{to{stroke-dashoffset:-100}}
+.holo-node{position:absolute;z-index:1;display:grid;place-items:center;width:clamp(54px,8vw,76px);aspect-ratio:1;padding:5px;border:1px solid rgba(103,232,249,.65);border-radius:50%;background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.24),rgba(34,211,238,.18) 30%,rgba(9,18,46,.88) 75%);box-shadow:0 0 22px rgba(34,211,238,.26),inset 0 0 18px rgba(103,232,249,.22);color:#e3fdff;font-size:.55rem;line-height:1.15;text-align:center;text-shadow:0 0 9px #67e8f9;transform:translate3d(0,0,var(--holo-depth,20px));animation:holo-bob 3.5s ease-in-out infinite alternate}
+.holo-node:nth-of-type(2n){animation-delay:-1.8s}.holo-core{position:absolute;z-index:0;left:50%;top:50%;width:36px;height:36px;border-radius:50%;background:#67e8f9;box-shadow:0 0 22px #67e8f9,0 0 65px rgba(34,211,238,.8);transform:translate(-50%,-50%) translateZ(5px)}
+@keyframes holo-bob{to{margin-top:-9px;filter:brightness(1.45)}}
+.lesson-list{display:grid;gap:9px;margin-top:12px}.lesson-item{padding:15px 16px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025)}.lesson-item h4{font-size:.92rem}.lesson-item p{margin:8px 0;color:var(--mut);font-size:.82rem;line-height:1.65}.lesson-concepts{display:flex;flex-wrap:wrap;gap:6px}.lesson-concepts span,.source-chip{padding:5px 9px;border:1px solid rgba(103,232,249,.2);border-radius:99px;background:rgba(34,211,238,.055);color:#9eeaf4;font-size:.65rem}
+.lesson-item[aria-current=true]{border-color:rgba(103,232,249,.35);background:linear-gradient(120deg,rgba(34,211,238,.055),rgba(139,92,246,.04))}
+.learning-error{padding:22px;border:1px solid rgba(251,113,133,.35);border-radius:15px;color:#fda4af}
+.lesson-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}.lesson-ask,.lesson-focus{padding:10px 14px;border:1px solid rgba(103,232,249,.3);border-radius:99px;background:rgba(34,211,238,.08);color:var(--tx);font-size:.75rem;cursor:pointer;transition:transform .2s,border-color .2s}.lesson-ask:hover,.lesson-focus:hover{transform:translateY(-2px);border-color:var(--b)}
+.upload-dock{display:grid;grid-template-columns:1fr minmax(260px,1.15fr);gap:17px;margin-top:30px;padding:24px;border:1px solid rgba(196,181,253,.2);border-radius:24px;background:linear-gradient(120deg,rgba(139,92,246,.09),rgba(34,211,238,.04));box-shadow:0 22px 70px rgba(0,0,0,.16)}
+.upload-intro h3{margin:5px 0 8px;font-size:1.35rem}.upload-intro>p:last-child{max-width:55ch;color:var(--mut);font-size:.82rem}.upload-form{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:10px}.upload-course{grid-column:1/-1;display:grid;gap:7px}.upload-course select,.wen-course-context select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:var(--bg2);color:var(--tx);font:inherit;font-size:.82rem}.upload-file{position:relative;display:flex;align-items:center;gap:9px;min-width:0;padding:11px;border:1px dashed rgba(103,232,249,.35);border-radius:12px;color:var(--b);font-size:.64rem;letter-spacing:.08em;cursor:pointer}.upload-file span:last-of-type{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.upload-file input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}.upload-button{padding:11px 13px;border:0;font-size:.67rem;white-space:nowrap;cursor:pointer}.upload-status,.uploaded-list{grid-column:1/-1;color:var(--mut);font-size:.76rem}.upload-status[data-state=error]{color:#fda4af}.upload-status[data-state=success]{color:#86efac}.uploaded-list{display:grid;gap:10px}.uploaded-item{display:grid;gap:10px;padding:13px;border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12);color:var(--mut);font-size:.72rem}.uploaded-item strong{color:var(--tx)}.archive-actions{display:flex;flex-wrap:wrap;gap:8px}.archive-actions .uploaded-open{padding:7px 10px;border:1px solid rgba(103,232,249,.22);border-radius:99px;background:rgba(34,211,238,.055);font:inherit;font-size:.63rem;letter-spacing:.06em;cursor:pointer}.archive-actions a.uploaded-open{display:inline-flex;align-items:center;text-decoration:none}.archive-summary{grid-column:1/-1;padding:15px;border:1px solid rgba(103,232,249,.18);border-radius:12px;background:rgba(0,0,0,.12);color:var(--mut);line-height:1.6}.archive-summary[hidden]{display:none}.archive-summary h4{margin:13px 0 6px;color:var(--b);font-size:.76rem;letter-spacing:.08em}.archive-summary h4:first-child{margin-top:0}.archive-summary ul,.archive-summary ol{display:grid;gap:7px;padding-left:22px}.archive-disclaimer{margin-top:12px;font-size:.68rem}
+.wen-course-context{display:grid;gap:5px;padding:0 16px 12px}.wen-source-list{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.wen-loading{color:#9eeaf4}.wen-error{border-color:rgba(251,113,133,.4);color:#fda4af}
+.wen-hologram{width:min(290px,100%);margin-top:10px;padding:8px;border:1px solid rgba(103,232,249,.18);border-radius:13px;background:radial-gradient(ellipse at 50% 100%,rgba(34,211,238,.12),rgba(9,14,32,.62) 75%);perspective:500px}
+.wen-holo-title{display:block;color:#92eaf4;font-size:.55rem;letter-spacing:.12em}
+.wen-holo-scene{position:relative;height:94px;transform:rotateX(var(--wen-tilt-x,0deg)) rotateY(var(--wen-tilt-y,0deg));transform-style:preserve-3d;transition:transform .18s ease-out}
+.wen-holo-ring{position:absolute;left:50%;top:50%;width:72px;height:72px;border:1px solid rgba(103,232,249,.42);border-radius:50%;transform:translate(-50%,-50%) rotateX(68deg);box-shadow:0 0 12px rgba(34,211,238,.16);animation:wen-holo-spin 10s linear infinite}
+.wen-holo-core{position:absolute;left:50%;top:50%;width:12px;height:12px;border-radius:50%;background:#a5f3fc;box-shadow:0 0 11px #22d3ee,0 0 30px #22d3ee;transform:translate(-50%,-50%) translateZ(16px)}
+.wen-holo-node{position:absolute;z-index:1;display:grid;max-width:65px;min-width:38px;min-height:24px;place-items:center;padding:3px 5px;border:1px solid rgba(103,232,249,.45);border-radius:99px;background:rgba(9,20,43,.88);box-shadow:0 0 10px rgba(34,211,238,.16);color:#d5fbff;font-size:.47rem;line-height:1.1;text-align:center;overflow-wrap:anywhere;transform:translate(-50%,-50%) translateZ(var(--wen-depth,16px));animation:wen-holo-float 3s ease-in-out infinite alternate}
+.wen-holo-node:nth-of-type(odd){animation-delay:-1.5s}
+@keyframes wen-holo-spin{to{transform:translate(-50%,-50%) rotateX(68deg) rotateZ(360deg)}}
+@keyframes wen-holo-float{to{margin-top:-3px;filter:brightness(1.4)}}
+.uploaded-open{align-self:center;color:#9eeaf4;font-size:.63rem;letter-spacing:.08em}.uploaded-open:hover{color:#fff}
+.wen-input-row input:disabled{opacity:.62}.wen-send:disabled,.upload-button:disabled{opacity:.55;cursor:wait}
+@media(max-width:980px){.solar-system{width:72%}.hero-content{width:min(650px,60%)}.learning-layout{grid-template-columns:1fr}.course-rail{grid-template-columns:repeat(3,minmax(0,1fr));max-height:none}.learning-detail{min-height:0}.upload-dock{grid-template-columns:1fr}.upload-form{grid-template-columns:1fr 1fr}}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;min-height:max(100svh,720px);align-content:start}
+  .hero-content{width:100%;max-width:100%;padding-top:clamp(210px,43svh,360px)}
+  .hero-content h1{font-size:clamp(2.8rem,11vw,5.6rem)}
+  .hero-content h1 .ln{overflow:visible}
+  .solar-system{inset:76px 0 auto;width:100%;height:min(52svh,390px);mask-image:linear-gradient(180deg,#000 45%,rgba(0,0,0,.86) 72%,transparent)}
+  .solar-readout{top:10px;right:5%;max-width:min(90%,360px);padding:9px 12px}
+  .solar-readout small{max-width:34ch}
+  .solar-hint{right:5%;bottom:5%;font-size:.5rem}
+}
+@media(max-width:600px){
+  .hero-content{padding-top:clamp(210px,43svh,340px)}
+  .hero-content h1{font-size:clamp(2.65rem,12vw,4.25rem)}
+  .hero-desc{font-size:.95rem;max-width:38ch}
+  .solar-system{height:min(48svh,350px)}
+  .solar-readout small{font-size:.49rem;letter-spacing:.07em}
+  .solar-hint{letter-spacing:.08em}
+  .course-rail{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .learning-toolbar{align-items:flex-start;flex-direction:column}
+  .learning-count{padding-left:4px}
+  .upload-dock{padding:17px}
+  .upload-form{grid-template-columns:1fr}
+  .upload-course,.upload-status,.uploaded-list{grid-column:auto}
+  .lesson-hologram{min-height:184px}
+  .wen-course-context{font-size:.58rem}
+}
+@media(prefers-reduced-motion:reduce){.solar-system,.solar-system *,.course-card,.holo-node,.holo-lines line,.wen-holo-ring,.wen-holo-node{animation:none!important;transition:none!important}}
   </style>
 </head>
 <body class="loading">
@@ -317,6 +445,7 @@ footer{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between;a
       <a href="#home">Beranda</a>
       <a href="#about">Tentang</a>
       <a href="#members">Bidang Belajar</a>
+      <a href="#learning">Pembelajaran</a>
       <a href="#students">Mahasiswa</a>
       <a href="#memories">Galeri</a>
       <button id="themeToggle" class="theme-btn" aria-label="Ganti tema">☼</button>
@@ -326,14 +455,30 @@ footer{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between;a
   <main>
     <section class="hero" id="home">
       <canvas id="fx" aria-hidden="true"></canvas>
+      <div class="solar-system" id="solarSystem" aria-label="Visualisasi 3D Matahari, Merkurius, Venus, Bumi dan Bulan, Mars, Jupiter, Saturnus, Uranus, dan Neptunus">
+        <div class="solar-fallback" aria-hidden="true">
+          <i class="fallback-sun"></i>
+          <i class="fallback-planet fallback-mercury"></i>
+          <i class="fallback-planet fallback-venus"></i>
+          <i class="fallback-planet fallback-earth"><span class="fallback-continent fallback-continent-one"></span><span class="fallback-continent fallback-continent-two"></span></i>
+          <i class="fallback-moon"></i>
+          <i class="fallback-planet fallback-mars"></i>
+          <i class="fallback-planet fallback-jupiter"></i>
+          <i class="fallback-planet fallback-saturn"></i>
+          <i class="fallback-planet fallback-uranus"></i>
+          <i class="fallback-planet fallback-neptune"></i>
+        </div>
+        <div class="solar-readout"><span class="solar-live-dot"></span><div><strong>SOLAR SYSTEM / 01</strong><small>MATAHARI · MERKURIUS · VENUS · BUMI + BULAN · MARS · JUPITER · SATURNUS · URANUS · NEPTUNUS</small></div></div>
+        <p class="solar-hint">GESER UNTUK MENJELAJAHI · SCROLL UNTUK MELINTASI ORBIT</p>
+      </div>
       <div class="hero-content">
         <p class="eyebrow"><span class="live-dot"></span>UNIVERSITAS GALUH · FAKULTAS EKONOMI</p>
         <h1><span class="ln"><b>MANAJEMEN</b></span><span class="ln"><b>KELAS <span>C</span></b></span></h1>
         <p class="hero-desc">Satu kelas, banyak gagasan. Bersama, kami belajar memahami bisnis dan membangun masa depan.</p>
-        <p class="typed">Belajar bersama, <b id="typed"></b></p>
+        <p class="typed">Belajar bersama, <b id="typed">berpikir strategis.</b></p>
         <div class="hero-actions">
           <a href="#about" class="btn-primary">Kenali Kelas Kami ↗</a>
-          <a href="#memories" class="btn-secondary">Lihat Galeri</a>
+          <a href="#learning" class="btn-secondary">Jelajahi Pembelajaran ↓</a>
         </div>
       </div>
       <div class="hero-earth" aria-hidden="true">
@@ -472,6 +617,38 @@ Program Studi Manajemen membekali mahasiswa dengan pengetahuan dan keterampilan 
         <article class="member-card reveal"><div class="member-avatar">✦</div><p class="member-role">04 / OPERASIONAL</p><h3>Wujudkan rencana</h3><p class="member-note">Mengatur proses kerja agar tujuan dapat dicapai secara efektif.</p></article>
       </div>
       <p class="hint">Belajar mengelola hari ini, bersiap memimpin perubahan esok hari.</p>
+    </section>
+
+    <section class="section learning-section" id="learning">
+      <div class="section-heading reveal">
+        <p class="eyebrow">03 / LEARNING ORBIT</p>
+        <h2>Ruang belajar.<br><span>Siapkan diri untuk UTS.</span></h2>
+        <p class="section-desc">Pilih mata kuliah dari jadwal Kelas C, pelajari materi pengantar dan peta konsep 3D, lalu unggah PDF untuk membuat rangkuman pokok dan latihan mandiri langsung di browser.</p>
+      </div>
+      <div class="learning-toolbar">
+        <label class="learning-search"><span aria-hidden="true">⌕</span><input id="courseSearch" type="search" placeholder="Cari mata kuliah, topik, atau materi…" aria-label="Cari materi pembelajaran"></label>
+        <span class="learning-count" id="learningCount" aria-live="polite">MEMUAT SILABUS…</span>
+      </div>
+      <div class="learning-layout">
+        <div class="course-rail" id="courseGrid" aria-label="Daftar mata kuliah"></div>
+        <article class="learning-detail" id="lessonDetail" aria-live="polite">
+          <div class="learning-empty"><span class="empty-orbit">✦</span><p>MENYINKRONKAN SILABUS</p><h3>Menyiapkan ruang belajar…</h3></div>
+        </article>
+      </div>
+      <section class="upload-dock" aria-labelledby="uploadTitle">
+        <div class="upload-intro">
+          <p class="eyebrow">LOCAL STUDY ARCHIVE / PDF</p>
+          <h3 id="uploadTitle">Rangkum PDF untuk UTS</h3>
+          <p>PDF teks hingga 15 MB diproses dan disimpan hanya di browser pada perangkat ini. Rangkuman otomatis memuat materi pokok, konsep kunci, dan latihan mandiri; PDF hasil scan/foto belum mendukung OCR. File tidak diunggah ke server.</p>
+        </div>
+        <form id="pdfUploadForm" class="upload-form">
+          <label class="upload-course">MATA KULIAH<select id="uploadCourse" name="course_id" required aria-label="Pilih mata kuliah untuk PDF"><option value="">Pilih mata kuliah…</option></select></label>
+          <label class="upload-file" for="pdfFile"><span aria-hidden="true">＋</span><span id="pdfFileName">PILIH PDF BAHAN UTS</span><input id="pdfFile" name="file" type="file" accept="application/pdf,.pdf" required></label>
+          <button class="btn-primary upload-button" type="submit">BUAT RANGKUMAN ↗</button>
+        </form>
+        <p class="upload-status" id="uploadStatus" role="status">Pilih mata kuliah dan PDF teks untuk membuat rangkuman pokok UTS.</p>
+        <div class="uploaded-list" id="uploadedList" aria-live="polite"></div>
+      </section>
     </section>
 
     <section class="section students-section" id="students">
@@ -624,8 +801,9 @@ Program Studi Manajemen membekali mahasiswa dengan pengetahuan dan keterampilan 
         <button class="wen-close" id="wenClose" type="button" aria-label="Tutup Wen.AI">✕</button>
       </header>
       <div class="wen-messages" id="wenMessages" role="log" aria-live="polite" aria-relevant="additions">
-        <p class="wen-message">Hai! Aku Wen.AI. Aku bisa membuka menu situs, termasuk daftar mahasiswa, dan membantu mencari NIM dari nama mahasiswa.</p>
+        <p class="wen-message">Hai! Aku Wen.AI. Aku bisa mencari jawaban dari materi kuliah dan rangkuman PDF yang tersimpan di browser ini. Aku bukan AI generatif; pastikan mencocokkan catatan dengan bahan dari dosen.</p>
       </div>
+      <label class="wen-course-context">KONTEKS MATA KULIAH<select id="wenCourseSelect" aria-label="Konteks mata kuliah untuk Wen.AI"><option value="">Pilih mata kuliah (opsional)</option></select></label>
       <div class="wen-shortcuts" aria-label="Perintah cepat">
         <button type="button" data-wen-command="Buka menu">Buka menu</button>
         <button type="button" data-wen-command="Buka bidang belajar">Bidang belajar</button>
@@ -645,6 +823,7 @@ Program Studi Manajemen membekali mahasiswa dengan pengetahuan dan keterampilan 
       <span class="wen-status-dot" aria-hidden="true"></span>
     </button>
   </aside>
+  <script type="module" src="app.js"></script>
   <script>
 document.addEventListener("DOMContentLoaded", () => {
   const $ = (s, r = document) => r.querySelector(s);
@@ -676,10 +855,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Scroll: progress bar, navbar, menu aktif
   const bar = $("#progress"), nav = $(".navbar");
+  const hero = $(".hero"), heroContent = $(".hero-content");
+  const heroEarth = $(".hero-earth"), heroScorpio = $(".hero-scorpio"), heroCard = $(".hero-card");
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let scrollFrame = 0;
   const onScroll = () => {
     const h = root.scrollHeight - innerHeight;
     bar.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`;
     nav.classList.toggle("scrolled", scrollY > 30);
+    if (reduceMotion || scrollFrame) return;
+    scrollFrame = requestAnimationFrame(() => {
+      scrollFrame = 0;
+      const progress = Math.max(0, Math.min(hero.offsetHeight, -hero.getBoundingClientRect().top));
+      heroContent.style.setProperty("--hero-content-parallax", `${progress * .035}px`);
+      $(".solar-system").style.setProperty("--solar-parallax", `${progress * .13}px`);
+      heroEarth.style.setProperty("--hero-earth-parallax", `${progress * .2}px`);
+      heroScorpio.style.setProperty("--hero-scorpio-parallax", `${progress * .12}px`);
+      heroCard.style.setProperty("--hero-card-parallax", `${progress * .08}px`);
+    });
   };
   addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
@@ -834,24 +1027,42 @@ document.addEventListener("DOMContentLoaded", () => {
     messages.append(message);
     messages.scrollTop = messages.scrollHeight;
   };
+  const isIndonesianVoice = voice => /^id(?:-|$)/i.test(voice.lang);
+  const isKnownIndonesianFemaleVoice = voice =>
+    /\b(female|woman|perempuan|gadis|wati|siti|damayanti)\b/i.test(voice.name) ||
+    /google bahasa indonesia/i.test(voice.name);
+  let indonesianVoice = null;
+  const refreshIndonesianVoice = () => {
+    const voices = window.speechSynthesis.getVoices().filter(isIndonesianVoice);
+    indonesianVoice = voices.find(isKnownIndonesianFemaleVoice) ||
+      voices.find(voice => /google bahasa indonesia/i.test(voice.name)) ||
+      null;
+  };
+  if ("speechSynthesis" in window) {
+    refreshIndonesianVoice();
+    window.speechSynthesis.addEventListener("voiceschanged", refreshIndonesianVoice);
+  }
   const speak = text => {
     if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) return;
+    refreshIndonesianVoice();
+    if (!indonesianVoice) {
+      assistantStatus.textContent = "Jawaban tampil langsung. Pasang suara perempuan Bahasa Indonesia di perangkat, lalu muat ulang.";
+      return;
+    }
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "id-ID";
-    utterance.rate = 1;
-    const voices = window.speechSynthesis.getVoices();
-    const indonesianVoice = voices.find(voice => voice.lang.toLowerCase().startsWith("id"));
-    if (indonesianVoice) utterance.voice = indonesianVoice;
+    utterance.voice = indonesianVoice;
+    utterance.rate = 1.08;
+    utterance.pitch = 1.1;
     utterance.onend = () => { assistantStatus.textContent = "Ketik pesan atau tekan mikrofon untuk bicara."; };
     utterance.onerror = () => { assistantStatus.textContent = "Balasan tetap tersedia sebagai teks."; };
     window.speechSynthesis.speak(utterance);
+    assistantStatus.textContent = "Jawaban tampil langsung; suara perempuan Bahasa Indonesia diputar.";
   };
   const answer = text => {
     addMessage(text, "assistant");
-    assistantStatus.textContent = "Wen.AI sedang menjawab dengan suara.";
     speak(text);
-    if (!("speechSynthesis" in window)) assistantStatus.textContent = "Balasan suara tidak didukung browser ini.";
   };
   const normalize = text => text.toLocaleLowerCase("id-ID").normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
 
@@ -860,6 +1071,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!command) return;
     addMessage(rawCommand, "user");
     assistantInput.value = "";
+
+    const asksAboutCourseMaterial =
+      /\b(apa|jelaskan|uraikan|materi|belajar|contoh|rumus|perbedaan|bagaimana|mengapa|tugas|latihan|rangkum|ringkas|teach|explain)\b/.test(command) &&
+      /\b(teknologi|informatika|tik|komputer|digital|konservasi|lingkungan|bahasa|indonesia|agama|ekonomi|mikro|manajemen|akuntansi|akunting|pancasila|inggris|english|penawaran|permintaan|elastisitas|jurnal|laporan|produksi|ekosistem|sitasi)\b/.test(command);
+    if (asksAboutCourseMaterial && window.askWenAI) {
+      window.askWenAI(rawCommand, answer);
+      return;
+    }
 
     const asksManagementAndAi =
       /\b(prodi|program studi|jurusan)\b/.test(command) &&
@@ -992,6 +1211,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { id: "home", words: ["beranda", "home", "halaman utama", "ke atas"] },
       { id: "about", words: ["tentang", "profil", "kelas kami"] },
       { id: "members", words: ["bidang belajar", "pelajaran", "belajar", "pemasaran", "keuangan", "operasional"] },
+      { id: "learning", words: ["pembelajaran", "materi kuliah", "materi uts"] },
       { id: "students", words: ["mahasiswa", "daftar nama", "daftar nim", "data mahasiswa", "daftar mahasiswa", "list mahasiswa", "anggota kelas"] },
       { id: "memories", words: ["galeri", "foto", "kenangan", "video"] }
     ];
@@ -1021,7 +1241,11 @@ document.addEventListener("DOMContentLoaded", () => {
       answer("Manajemen C adalah kelas di Program Studi Manajemen, Fakultas Ekonomi Universitas Galuh. Di sini kita belajar, berkolaborasi, dan bertumbuh bersama.");
       return;
     }
-    answer("Aku bisa membuka menu, Beranda, Tentang, Bidang Belajar, daftar Mahasiswa, atau Galeri, mencari NIM dari nama mahasiswa, dan mengganti tema. Coba ucapkan “buka daftar mahasiswa” atau sebut nama mahasiswa.");
+    if (window.askWenAI) {
+      window.askWenAI(rawCommand, answer);
+      return;
+    }
+    answer("Aku bisa membuka Beranda, Tentang, Pembelajaran, daftar Mahasiswa, atau Galeri. Untuk pertanyaan kuliah, aku mencocokkan kata kunci dengan materi dan rangkuman yang tersimpan di browser ini.");
   };
 
   assistantForm.addEventListener("submit", event => {
@@ -1049,8 +1273,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     recognition.onerror = event => {
       const errorMessages = {
-        "not-allowed": "Izin mikrofon ditolak. Buka pengaturan situs dari ikon di kiri alamat halaman, ubah Mikrofon menjadi Izinkan, lalu muat ulang. Jika halaman dibuka sebagai file, jalankan lewat localhost atau HTTPS.",
-        "service-not-allowed": "Browser memblokir layanan pengenalan suara. Izinkan mikrofon untuk situs ini dan coba lagi melalui localhost atau HTTPS.",
+        "not-allowed": "Izin mikrofon ditolak. Buka pengaturan situs dari ikon di kiri alamat halaman, ubah Mikrofon menjadi Izinkan, lalu muat ulang.",
+        "service-not-allowed": "Browser memblokir layanan pengenalan suara. Izinkan mikrofon untuk situs ini dan buka situs melalui alamat GitHub Pages HTTPS.",
         "no-speech": "Suara belum terdengar. Tekan mikrofon lalu coba lagi.",
         "audio-capture": "Mikrofon tidak ditemukan atau sedang tidak tersedia."
       };
@@ -1095,22 +1319,8 @@ document.addEventListener("DOMContentLoaded", () => {
   addEventListener("load", () => setTimeout(done, reduce ? 0 : 900));
   setTimeout(done, 3000);
 
-  // Teks mengetik
   const el = document.getElementById("typed");
-  const words = ["berpikir strategis.", "berkolaborasi.", "menciptakan dampak.", "siap bertumbuh."];
-  if (reduce) el.textContent = words[0];
-  else {
-    let w = 0, c = 0, del = false;
-    const tick = () => {
-      const word = words[w];
-      el.textContent = word.slice(0, c);
-      if (!del && c === word.length) { del = true; return setTimeout(tick, 1600); }
-      if (del && c === 0) { del = false; w = (w + 1) % words.length; }
-      c += del ? -1 : 1;
-      setTimeout(tick, del ? 35 : 80);
-    };
-    setTimeout(tick, 1600);
-  }
+  el.textContent = "berpikir strategis.";
 
   // Partikel interaktif di hero
   const cv = document.getElementById("fx");
@@ -1127,7 +1337,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cv.parentElement.addEventListener("mouseleave", () => { m.x = m.y = -999; });
     (function draw() {
       ctx.clearRect(0, 0, W, H);
-      for (const p of ps) {
+      for (const p of ps) { 
         p.x += p.vx; p.y += p.vy;
         if (p.x < 0 || p.x > W) p.vx *= -1;
         if (p.y < 0 || p.y > H) p.vy *= -1;
