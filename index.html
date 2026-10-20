@@ -1043,7 +1043,6 @@ document.addEventListener("DOMContentLoaded", () => {
     /\b(female|woman|perempuan|gadis|wati|siti|damayanti)\b/i.test(voice.name) ||
     /google bahasa indonesia/i.test(voice.name);
   let indonesianVoice = null;
-  let defaultVoice = null;
   let speechRequestId = 0;
   const refreshIndonesianVoice = () => {
     const allVoices = window.speechSynthesis.getVoices();
@@ -1051,7 +1050,6 @@ document.addEventListener("DOMContentLoaded", () => {
     indonesianVoice = voices.find(isKnownIndonesianFemaleVoice) ||
       voices[0] ||
       null;
-    defaultVoice = allVoices.find(voice => voice.default) || allVoices[0] || null;
   };
   if ("speechSynthesis" in window) {
     refreshIndonesianVoice();
@@ -1064,11 +1062,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     refreshIndonesianVoice();
     const requestId = ++speechRequestId;
-    const voice = indonesianVoice || defaultVoice;
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = voice?.lang || "id-ID";
-    utterance.voice = voice;
+    utterance.lang = "id-ID";
+    if (indonesianVoice) utterance.voice = indonesianVoice;
     utterance.rate = 1.08;
     utterance.pitch = 1.1;
     utterance.onend = () => {
@@ -1090,8 +1087,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     window.speechSynthesis.speak(utterance);
     assistantStatus.textContent = indonesianVoice
-      ? "Memutar suara Bahasa Indonesia."
-      : "Voice Indonesia tidak tersedia; mencoba suara default perangkat.";
+      ? `Memutar suara Bahasa Indonesia (${indonesianVoice.name}).`
+      : "Meminta browser memakai suara Bahasa Indonesia. Jika gagal, aktifkan voice Indonesia di pengaturan text-to-speech HP.";
   };
   const answer = text => {
     addMessage(text, "assistant");
