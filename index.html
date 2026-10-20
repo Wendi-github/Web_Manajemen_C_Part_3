@@ -285,6 +285,8 @@ footer{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:space-between;a
 .wen-messages{display:flex;flex:1;flex-direction:column;gap:12px;overflow-y:auto;padding:17px}
 .wen-message{max-width:88%;padding:11px 14px;border:1px solid var(--line);border-radius:16px 16px 16px 4px;background:var(--card);color:var(--tx);font-size:.9rem;line-height:1.5;overflow-wrap:anywhere}
 .wen-message.user{align-self:flex-end;border-color:rgba(139,92,246,.38);border-radius:16px 16px 4px 16px;background:linear-gradient(135deg,rgba(139,92,246,.22),rgba(34,211,238,.12))}
+.wen-replay{align-self:flex-start;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--mut);font:500 .76rem "DM Sans",sans-serif;cursor:pointer}
+.wen-replay:hover,.wen-replay:focus-visible{border-color:var(--b);color:var(--tx)}
 .wen-shortcuts{display:flex;gap:8px;overflow-x:auto;padding:0 16px 12px}
 .wen-shortcuts button{flex:0 0 auto;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--mut);font:500 .76rem "DM Sans",sans-serif;cursor:pointer}
 .wen-shortcuts button:hover{border-color:var(--b);color:var(--tx)}
@@ -1025,6 +1027,15 @@ document.addEventListener("DOMContentLoaded", () => {
     message.className = `wen-message${sender === "user" ? " user" : ""}`;
     message.textContent = text;
     messages.append(message);
+    if (sender !== "user") {
+      const replayButton = document.createElement("button");
+      replayButton.className = "wen-replay";
+      replayButton.type = "button";
+      replayButton.textContent = "🔊 Dengarkan";
+      replayButton.setAttribute("aria-label", "Putar suara jawaban Wen.AI");
+      replayButton.addEventListener("click", () => speak(text));
+      messages.append(replayButton);
+    }
     messages.scrollTop = messages.scrollHeight;
   };
   const isIndonesianVoice = voice => /^id(?:-|$)/i.test(voice.lang);
