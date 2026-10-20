@@ -1044,6 +1044,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /google bahasa indonesia/i.test(voice.name);
   let indonesianVoice = null;
   let defaultVoice = null;
+  let speechRequestId = 0;
   const refreshIndonesianVoice = () => {
     const allVoices = window.speechSynthesis.getVoices();
     const voices = allVoices.filter(isIndonesianVoice);
@@ -1062,16 +1063,30 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     refreshIndonesianVoice();
+    const requestId = ++speechRequestId;
+    const voice = indonesianVoice || defaultVoice;
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "id-ID";
-    utterance.voice = indonesianVoice || defaultVoice;
+    utterance.lang = voice?.lang || "id-ID";
+    utterance.voice = voice;
     utterance.rate = 1.08;
     utterance.pitch = 1.1;
-    utterance.onend = () => { assistantStatus.textContent = "Ketik pesan atau tekan mikrofon untuk bicara."; };
+    utterance.onend = () => {
+      if (requestId === speechRequestId) assistantStatus.textContent = "Ketik pesan atau tekan mikrofon untuk bicara.";
+    };
     utterance.onerror = event => {
-      if (event.error === "canceled") return;
-      assistantStatus.textContent = `Browser gagal memutar suara (${event.error}). Jawaban tetap tersedia sebagai teks.`;
+      if (requestId !== speechRequestId || event.error === "canceled" || event.error === "interrupted") return;
+      const errors = {
+        "audio-busy": "Audio HP sedang dipakai aplikasi lain.",
+        "audio-hardware": "Perangkat audio HP tidak tersedia.",
+        "language-unavailable": "Voice untuk bahasa ini tidak tersedia di HP.",
+        "network": "Layanan text-to-speech tidak dapat dihubungi.",
+        "not-allowed": "Browser atau sistem HP menolak pemutaran suara.",
+        "synthesis-failed": "Layanan text-to-speech di HP gagal memproses suara.",
+        "synthesis-unavailable": "Text-to-speech belum tersedia atau belum diaktifkan di HP.",
+        "voice-unavailable": "Voice yang dipilih tidak tersedia di HP."
+      };
+      assistantStatus.textContent = `${errors[event.error] || `Pemutaran suara gagal (${event.error})`}. Jawaban tetap tersedia sebagai teks.`;
     };
     window.speechSynthesis.speak(utterance);
     assistantStatus.textContent = indonesianVoice
