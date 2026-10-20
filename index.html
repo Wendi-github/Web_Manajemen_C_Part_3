@@ -1032,33 +1032,40 @@ document.addEventListener("DOMContentLoaded", () => {
     /\b(female|woman|perempuan|gadis|wati|siti|damayanti)\b/i.test(voice.name) ||
     /google bahasa indonesia/i.test(voice.name);
   let indonesianVoice = null;
+  let defaultVoice = null;
   const refreshIndonesianVoice = () => {
-    const voices = window.speechSynthesis.getVoices().filter(isIndonesianVoice);
+    const allVoices = window.speechSynthesis.getVoices();
+    const voices = allVoices.filter(isIndonesianVoice);
     indonesianVoice = voices.find(isKnownIndonesianFemaleVoice) ||
-      voices.find(voice => /google bahasa indonesia/i.test(voice.name)) ||
+      voices[0] ||
       null;
+    defaultVoice = allVoices.find(voice => voice.default) || allVoices[0] || null;
   };
   if ("speechSynthesis" in window) {
     refreshIndonesianVoice();
     window.speechSynthesis.addEventListener("voiceschanged", refreshIndonesianVoice);
   }
   const speak = text => {
-    if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) return;
-    refreshIndonesianVoice();
-    if (!indonesianVoice) {
-      assistantStatus.textContent = "Jawaban tampil langsung. Pasang suara perempuan Bahasa Indonesia di perangkat, lalu muat ulang.";
+    if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+      assistantStatus.textContent = "Browser tidak mendukung pemutaran suara. Jawaban tetap tersedia sebagai teks.";
       return;
     }
+    refreshIndonesianVoice();
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "id-ID";
-    utterance.voice = indonesianVoice;
+    utterance.voice = indonesianVoice || defaultVoice;
     utterance.rate = 1.08;
     utterance.pitch = 1.1;
     utterance.onend = () => { assistantStatus.textContent = "Ketik pesan atau tekan mikrofon untuk bicara."; };
-    utterance.onerror = () => { assistantStatus.textContent = "Balasan tetap tersedia sebagai teks."; };
+    utterance.onerror = event => {
+      if (event.error === "canceled") return;
+      assistantStatus.textContent = `Browser gagal memutar suara (${event.error}). Jawaban tetap tersedia sebagai teks.`;
+    };
     window.speechSynthesis.speak(utterance);
-    assistantStatus.textContent = "Jawaban tampil langsung; suara perempuan Bahasa Indonesia diputar.";
+    assistantStatus.textContent = indonesianVoice
+      ? "Memutar suara Bahasa Indonesia."
+      : "Voice Indonesia tidak tersedia; mencoba suara default perangkat.";
   };
   const answer = text => {
     addMessage(text, "assistant");
